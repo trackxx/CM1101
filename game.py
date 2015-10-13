@@ -63,7 +63,7 @@ def print_inventory_items(items):
     manner similar to print_room_items(). The only difference is in formatting:
     print "You have ..." instead of "There is ... here.". For example:
 
-    >>> print_inventory_items(inventory)
+    >>> print_inventory_items(player.inventory)
     You have id card, laptop, money.
     <BLANKLINE>
 
