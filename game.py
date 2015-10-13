@@ -242,7 +242,7 @@ def execute_take(item_id):
             player.current_room["items"].remove(item)
             player.inventory.append(item)
             taken = True
-            
+
     if not taken:
         print("You cannot take that.")
 
@@ -258,7 +258,7 @@ def execute_drop(item_id):
             player.inventory.remove(item)
             player.current_room["items"].append(item)
             dropped = True
-            
+
     if not dropped:
         print("You cannot take that.")
 
