@@ -88,6 +88,3 @@ def normalise_input(user_input):
     words = no_punct.split(" ")
     important_words = filter_words(words, skip_words)
     return important_words
-    #
-    # COMPLETE ME!
-    #
