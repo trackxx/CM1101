@@ -22,7 +22,7 @@ room_staff = {
 
     "exits": {"north": "Factory Floor"},
 
-    "items": []
+    "items": [item_sticker,item_id]
 }
 
 room_locker = {
@@ -34,7 +34,7 @@ room_locker = {
 
     "exits": {"west": "Factory Floor"},
 
-    "items": [item_id,item_wallet,item_mobile ]
+    "items": [item_wallet,item_mobile,item_note ]
 }
 
 room_parking = {
@@ -67,3 +67,4 @@ rooms = {
     "Parking": room_parking,
     "Office": room_office
 }
+
