@@ -1,8 +1,8 @@
 from items import *
 from map import rooms
 
-inventory = [item_id, item_laptop, item_money]
-current_room = rooms["Reception"]
+inventory = []
+current_room = rooms["Factory Floor"]
 health = 100
 armour = 0
 mass = 0
