@@ -4,48 +4,63 @@ item_id = {
     "name": "id card",
 
     "description":
-    """You new shiny student ID card. Expires 1 June 2017.
-You wonder why they have printed a suicide hotline number on it?..."""
+    """This id card is 15 years old... 15! years old... the picture is from when i had girls 
+    falling at my feet aka before the bald patch..."""
 }
 
-item_laptop = {
-    "id": "laptop",
+item_scooter = {
+    "id": "scooter",
 
-    "name": "laptop",
+    "name": "scooter",
 
     "description":
-    "It has seen better days. At least it has a WiFi card!"
+    "my version of a car.. it has never failed me yet"
 }
 
-item_money = {
-    "id": "money",
+item_wallet = {
+    "id": "wallet",
 
-    "name": "money",
+    "name": "wallet",
 
     "description":
-    "This wad of cash is barely enough to pay your tuition fees."
+    "no money but has many pieces of paper inside"
 }
 
-item_biscuits = {
-    "id": "biscuits",
+item_cheese_grater = {
+    "id": "cheese",
 
-    "name": "a pack of biscuits",
+    "name": "cheese grater",
 
     "description": "A pack of biscuits."
 }
 
-item_pen = {
-    "id": "pen",
+item_cheese = {
+    "id": "cheese",
 
-    "name": "a pen",
+    "name": "Blue Stilton cheese",
 
-    "description": "A basic ballpoint pen."
+    "description": "A lump of cheese that is not known for its luxurious smell  ."
 }
 
-item_handbook = {
-    "id": "handbook",
+item_mobile = {
+    "id": "Mobile",
 
-    "name": "a student handbook",
+    "name": "a nokia 3310",
 
-    "description": "This student handbook explains everything. Seriously."
+    "description": "they say dont fix it unless its broke.. yee well atleast it has snake."
 }
+item_note = {
+    "id": "Note",
+
+    "name": "a note",
+
+    "description": "Today is your lucky day. 5"
+}
+item_sticker = {
+    "id": "sticker",
+
+    "name": "a sticker",
+
+    "description": "sorry mate i was hungry i owe you. 19"
+}
+
