@@ -132,8 +132,16 @@ def move(exits, direction):
     # Next room to go to
     return rooms[exits[direction]]
 
-def start_game():
-    while True:
+def check_completion():
+    if len(player.inventory) == 6:
+        print("You have completed the game!")
+        return True
+    else:
+        return False
+
+def play_game():
+    player.start_time = int(time.time())
+    while not check_completion():
         # Display game status (room description, inventory etc.)
         print_room(player.current_room)
         print_inventory_items(player.inventory)
@@ -141,6 +149,8 @@ def start_game():
         command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
         # Execute the player's command
         execute_command(command)
+    player.end_time = int(time.time())
+    return True
 
 # This is the entry point of our program
 def main():
