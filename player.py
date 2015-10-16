@@ -12,3 +12,5 @@ level = 1
 name = ""
 gender = ""
 start_time = 0
+end_time = 0
+completion = False
