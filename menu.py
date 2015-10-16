@@ -8,11 +8,44 @@ from map import rooms
 def md5_hash(value):
     return hashlib.md5(value.encode('utf-8')).hexdigest()
 
+def add_leaderboards(name, time):
+    f = open("leaderboards", 'r+')
+    leaderboard = ""
+    added = False
+    for line in f:
+        details = line.split(",")
+        leaderboard_time = int(details[1].rstrip('\n'))
+        if(time <= leaderboard_time):
+            if not added:
+                leaderboard += name + "," + str(time) + "\n"
+                added = True
+        leaderboard += line
+    f.close()
+    if leaderboard == "":
+        leaderboard = name + "," + str(time) + "\n"
+    f = open("leaderboards", 'w')
+    f.write(leaderboard)
+    f.close()
+
+def leaderboards():
+    print("\nLeaderboards:")
+    f = open("leaderboards", 'r+')
+    position = 1
+    for line in f:
+        details = line.split(",")
+        print(str(position) + ". " + details[0] + " (" + details[1].rstrip('\n') + ")")
+        position += 1
+    f.close()
+
 def new_game():
     print("\nWelcome to GAME... I just need to ask you a few questions before we begin.")
     player.name = input("What is your name? ")
     player.gender = input("Are you a male or female? [M/F] ")
-    start_game()
+    if play_game():
+        completion_time = player.end_time - player.start_time
+        add_leaderboards(player.name, completion_time)
+        leaderboards()
+
 
 def save_game():
     save_name = input("\nPlease enter a name for your save: ")
@@ -61,33 +94,6 @@ def load_game():
         rooms = game_stats["rooms"]
         print("Game loaded successfully")
         start_game()
-
-
-def add_leaderboards(name, time):
-    f = open("leaderboards", 'r+')
-    leaderboard = ""
-    added = False
-    for line in f:
-        details = line.split(",")
-        leaderboard_time = int(details[1].rstrip('\n'))
-        if(time < leaderboard_time):
-            if not added:
-                leaderboard += name + "," + str(time) + "\n"
-        leaderboard += line
-    f.close()
-    f = open("leaderboards", 'w')
-    f.write(leaderboard)
-    f.close()
-
-def leaderboards():
-    print("\nLeaderboards:")
-    f = open("leaderboards", 'r+')
-    position = 1
-    for line in f:
-        details = line.split(",")
-        print(str(position) + ". " + details[0] + " (" + details[1].rstrip('\n') + ")")
-        position += 1
-    f.close()
 
 def show_menu():
     menu_items = ["New Game", "Save Current Game", "Load Game", "Leaderboards"]
