@@ -29,12 +29,12 @@ def remove_punct(text):
     return no_punct
 
 def remove_spaces(text):
-    return text.replace(" ", "")    #Replace space with nothing
+    return text.strip()    #Replace space with nothing
 
 
 def normalise_input(user_input):
     # Remove punctuation and convert to lower case
-    no_punct = remove_punct(user_input).lower()
+    no_punct = remove_spaces(remove_punct(user_input)).lower()
     words = no_punct.split(" ")
     important_words = filter_words(words, skip_words)
     return important_words

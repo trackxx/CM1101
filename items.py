@@ -1,17 +1,17 @@
 item_id = {
     "id": "id",
 
-    "name": "id card",
+    "name": "an ID card",
 
     "description":
-    """This id card is 15 years old... 15! years old... the picture is from when i had girls 
+    """This id card is 15 years old... 15! years old... the picture is from when I had girls
     falling at my feet aka before the bald patch..."""
 }
 
 item_scooter = {
     "id": "scooter",
 
-    "name": "scooter",
+    "name": "a Scooter",
 
     "description":
     "my version of a car.. it has never failed me yet"
@@ -20,16 +20,16 @@ item_scooter = {
 item_wallet = {
     "id": "wallet",
 
-    "name": "wallet",
+    "name": "a Wallet",
 
     "description":
     "no money but has many pieces of paper inside"
 }
 
 item_cheese_grater = {
-    "id": "cheese",
+    "id": "grater",
 
-    "name": "cheese grater",
+    "name": "Cheese Grater",
 
     "description": "A pack of biscuits."
 }
@@ -37,30 +37,29 @@ item_cheese_grater = {
 item_cheese = {
     "id": "cheese",
 
-    "name": "Blue Stilton cheese",
+    "name": "Blue Stilton Cheese",
 
     "description": "A lump of cheese that is not known for its luxurious smell  ."
 }
 
 item_mobile = {
-    "id": "Mobile",
+    "id": "mobile",
 
-    "name": "a nokia 3310",
+    "name": "a Nokia 3310",
 
     "description": "they say dont fix it unless its broke.. yee well atleast it has snake."
 }
 item_note = {
-    "id": "Note",
+    "id": "note",
 
-    "name": "a note",
+    "name": "a Note",
 
     "description": "Today is your lucky day. 5"
 }
 item_sticker = {
     "id": "sticker",
 
-    "name": "a sticker",
+    "name": "a Sticker",
 
     "description": "sorry mate i was hungry i owe you. 19"
 }
-

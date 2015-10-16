@@ -1,4 +1,5 @@
 import player
+import time
 from menu import *
 from items import *
 from normalise import *
@@ -133,7 +134,7 @@ def move(exits, direction):
     return rooms[exits[direction]]
 
 def check_completion():
-    if len(player.inventory) == 6:
+    if len(player.inventory) == 100:
         print("You have completed the game!")
         return True
     else:
