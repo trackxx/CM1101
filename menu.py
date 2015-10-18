@@ -42,9 +42,12 @@ def new_game():
     player.name = input("What is your name? ")
     player.gender = input("Are you a male or female? [M/F] ")
     if play_game():
+        print("Congratulations!")
         completion_time = player.end_time - player.start_time
         add_leaderboards(player.name, completion_time)
         leaderboards()
+    else:
+        print("GAME OVER")
 
 
 def save_game():

@@ -1,4 +1,5 @@
 from items import *
+from enemy import *
 
 room_factory = {
     "name": "Factory Floor",
@@ -9,7 +10,9 @@ room_factory = {
 
     "exits": {"south": "Staff Room", "east": "Locker room", "west": "Parking"},
 
-    "items": [item_cheese_grater, item_cheese]
+    "items": [item_cheese_grater, item_cheese],
+
+    "enemy": enemy_one
 }
 
 room_staff = {
