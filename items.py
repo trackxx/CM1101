@@ -1,65 +1,142 @@
-item_id = {
-    "id": "id",
+import weapons
 
-    "name": "an ID card",
-
-    "description":
-    """This id card is 15 years old... 15! years old... the picture is from when I had girls
-    falling at my feet aka before the bald patch..."""
-}
-
-item_scooter = {
-    "id": "scooter",
-
-    "name": "a Scooter",
-
-    "description":
-    "my version of a car.. it has never failed me yet"
+item_student_card = {
+    "id": "student card",
+    "name": "a Student Card",
+    "description": """DECRIPTION""",
+    "interactable": False
 }
 
 item_wallet = {
     "id": "wallet",
-
     "name": "a Wallet",
-
-    "description":
-    "no money but has many pieces of paper inside"
+    "description": """DECRIPTION""",
+    "interactable": False
 }
 
-item_cheese_grater = {
-    "id": "grater",
-
-    "name": "Cheese Grater",
-
-    "description": "A pack of biscuits."
+item_keys = {
+    "id": "keys",
+    "name": "Keys",
+    "decription": """DECRIPTION""",
+    "interactable": False
 }
 
-item_cheese = {
-    "id": "cheese",
-
-    "name": "Blue Stilton Cheese",
-
-    "description": "A lump of cheese that is not known for its luxurious smell  ."
+item_phone = {
+    "id": "phone",
+    "name": "an iPhone",
+    "decription": """DECRIPTION""",
+    "interactable": False
 }
 
-item_mobile = {
-    "id": "mobile",
-
-    "name": "a Nokia 3310",
-
-    "description": "they say dont fix it unless its broke.. yee well atleast it has snake."
+item_wristband = {
+    "id": "wristband",
+    "name": "a VIP Wristband",
+    "decription": """DECRIPTION""",
+    "interactable": False
 }
-item_note = {
-    "id": "note",
 
-    "name": "a Note",
-
-    "description": "Today is your lucky day. 5"
+item_hotdog = {
+    "id": "hotdog",
+    "name": "a Hotdog",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "health",
+    "health": 20
 }
-item_sticker = {
-    "id": "sticker",
 
-    "name": "a Sticker",
+item_money = {
+    "id": "money",
+    "name": "Money",
+    "decription": """DECRIPTION""",
+    "interactable": False
+}
 
-    "description": "sorry mate i was hungry i owe you. 19"
+item_number = {
+    "id": "number",
+    "name": "a Number",
+    "decription": """DECRIPTION""",
+    "interactable": False
+}
+
+item_id = {
+    "id": "id",
+    "name": "an ID",
+    "decription": """DECRIPTION""",
+    "interactable": False
+}
+
+item_cologne = {
+    "id": "cologne",
+    "name": "Cologne",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "attractive"
+}
+
+item_water = {
+    "id": "water",
+    "name": "Water",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "drunkness",
+    "drunkness": -10
+}
+
+item_jager = {
+    "id": "jager",
+    "name": "a Jagerbomb",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "drunkness",
+    "drunkness": 20
+}
+
+item_vodka = {
+    "id": "vodka",
+    "name": "a Vodka Shot",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "drunkness",
+    "drunkness": 30
+}
+
+item_ticket = {
+    "id": "ticket",
+    "name": "a Cloakroom Ticket",
+    "decription": """DECRIPTION""",
+    "interactable": False
+}
+
+item_card = {
+    "id": "card",
+    "name": "a Taxi Card",
+    "decription": """DECRIPTION""",
+    "interactable": False
+}
+
+item_jacket = {
+    "id": "jacket",
+    "name": "a Jacket",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "items",
+    "items": [item_keys, item_card]
+}
+
+item_table = {
+    "id": "table",
+    "name": "a Table",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "weapons",
+    "items": [weapons.weapon_bottle, weapons.weapon_bucket]
+}
+
+item_hotdog_stand = {
+    "id": "stand",
+    "name": "a Hotdog Stand",
+    "decription": """DECRIPTION""",
+    "interactable": True,
+    "type": "weapons",
+    "items": [weapons.weapon_spatula, weapons.weapon_hotdog]
 }

@@ -40,7 +40,6 @@ def leaderboards():
 def new_game():
     print("\nWelcome to GAME... I just need to ask you a few questions before we begin.")
     player.name = input("What is your name? ")
-    player.gender = input("Are you a male or female? [M/F] ")
     if play_game():
         print("Congratulations!")
         completion_time = player.end_time - player.start_time

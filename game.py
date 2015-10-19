@@ -148,10 +148,10 @@ def play_game():
         print_room(player.current_room)
         print_inventory_items(player.inventory)
         # Show the menu with possible actions and ask the player
-        # command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
+        command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
         # Execute the player's command
-        # execute_command(command)
-        fight_scene()
+        execute_command(command)
+        # fight_scene()
         if player.health <= 0:
             return False
     player.end_time = int(time.time())
@@ -159,7 +159,7 @@ def play_game():
 
 # This is the entry point of our program
 def main():
-    print("Welcome to GAME\n")
+    print("Welcome to PRZYM BREAK\n")
     show_menu()
 
 
