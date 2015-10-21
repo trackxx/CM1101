@@ -119,7 +119,7 @@ person_hot_girl = {
     "cost": 0
 }
 
-person_rugby_guy = {
+person_bouncer = {
     "name": "Bouncer",
     "health": 50,
     "weapon": weapons.weapon_giant_fists

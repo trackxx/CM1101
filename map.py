@@ -4,8 +4,7 @@ from people import *
 room_entrance = {
     "name": "Entrance",
 
-    "description":
-    """ """,
+    "description": "",
 
     "exits": {"west": "Exit", "east" : "Rnb Room", "north" : "Stairs to first floor"},
 
@@ -17,209 +16,184 @@ room_entrance = {
 room_rnb_bar = {
     "name": " Rnb Bar",
 
-    "description":
-    """ """,
+    "description": "",
 
     "exits": {"west": "Rnb Room"},
 
     "items": [],
 
     "people": [person_toilet_guy]
-
-   
-
-    
 }
 
 room_Rnb = {
     "name": "Rnb Room",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"west" : "Entrance", "east" : "Rnb Bar"},
+    "exits": {"west": "Entrance", "east": "Rnb Bar"},
 
-    "items": [item_phone],
-
-
-
-   
+    "items": [item_phone]
 }
 
 room_cloak = {
     "name": "Cloak room",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"east" : "Stairs to first floor "},
+    "exits": {"east": "Stairs to first floor"},
 
     "items": [item_keys,item_card],
     
     "people": [person_cloakroom]
-   
 }
+
 room_stairs1 = {
     "name": "Stairs to first floor",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"north" : "Stairs to second floor", "south" : "Entrance", "east" : "Hotdog stand"},
+    "exits": {"north": "Stairs to second floor", "south": "Entrance", "east": "Hotdog stand"},
 
-    "items": [],
+    "items": []
+}
 
-    
-        }
 room_hotdog = {
     "name": "Hotdog stand",
 
     "description":
     """ """,
 
-    "exits": {"east": "Toilet", "west" : "Stairs to first floor" },
+    "exits": {"east": "Toilet", "west": "Stairs to first floor"},
 
     "items": [item_wallet,item_hotdog,item_hotdog_stand],
 
-    "people": [person_hotdog_guy,person_smoking_area_guy ]
-    
-        }
+    "people": [person_hotdog_guy, person_smoking_area_guy]
+}
+
 room_toilet1 = {
     "name": "Toilet",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"west" : "Hotdog stand"},
+    "exits": {"west": "Hotdog stand"},
 
     "items": [item_money],
 
-     "people": [person_toilet_guy]
-
-     
-        }
+    "people": [person_toilet_guy]
+}
         
 room_toilet2 = {
     "name": "Toilet2",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"west" : "Hotdog stand"},
+    "exits": {"west": "Hotdog stand"},
 
     "items": [item_cologne],
+}
 
-  #  "enemy": 
-        }
 room_stairs2 = {
     "name": "Stairs to second floor ",
 
     "description":
     """ """,
 
-    "exits": {"west" :  "Vip Room", "south" : "Stairs to first floor", "east" :"Pryzm Room", "north" : "Stairs to third floor" },
+    "exits": {"west": "Vip Room", "south": "Stairs to first floor", "east": "Pryzm Room", "north": "Stairs to third floor"},
 
-    "items": [],
+    "items": []
+}
 
-   
-        }
 room_stairs3 = {
     "name": "Stairs to third floor ",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"north" : "Disco Room", "south" : "Stairs to second floor" },
+    "exits": {"north": "Disco Room", "south": "Stairs to second floor"},
 
-    "items": [],
+    "items": []
 }
+
 room_vip = {
     "name": "Vip Room",
 
-    "description" :
-    """ """,
+    "description": "",
 
-    "exits": {"east" : "Stairs to second floor"},
+    "exits": {"east": "Stairs to second floor"},
 
     "items": [item_student_card,item_table],
 
-  "people": [person_housemate_girl,person_housemate_guy] 
-        }
+    "people": [person_housemate_girl,person_housemate_guy]
+}
+
 room_Main = {
     "name": "Pryzm Room",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"east" : "Pryzm room Bar", "west" : "Stairs to second floor" },
+    "exits": {"east": "Pryzm room Bar", "west": "Stairs to second floor"},
 
-    "items": [item_water],
+    "items": [item_water]
+}
 
-
-        }
 room_main_bar = {
     "name": "Pryzm room Bar",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"west" :"Pryzm Room" ,"south" : "Smoking area"},
+    "exits": {"west": "Pryzm Room", "south": "Smoking area"},
 
     "items": [item_id],
 
-  "people": [person_coursemate_girl,person_coursemate_boyfriend,person_barman_one] 
-        }
+    "people": [person_coursemate_girl,person_coursemate_boyfriend,person_barman_one]
+}
+
 room_smoking = {
     "name": "Smoking area",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"north" : "Pryzam room Bar"},
+    "exits": {"north": "Pryzm room bar"},
 
     "items": [item_wristband],
 
-  "people":[person_smoking_area_guy]
-        }
+    "people":[person_smoking_area_guy]
+}
+
 room_disco = {
     "name": "Disco Room",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"east" : "Disco room bar", "south" : "Stairs to second floor"},
+    "exits": {"east": "Disco room bar", "south": "Stairs to second floor"},
 
-    "items": [item_number,item_ticket ],
+    "items": [item_number, item_ticket],
 
-  "people":[person_rugby_guy]
-        }
+    "people": [person_rugby_guy]
+}
+
 room_disco_bar = {
     "name": "Disco room bar",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {"west" : "Disco Room"},
+    "exits": {"west": "Disco Room"},
 
     "items": [item_jager,item_vodka],
 
-  "people":[person_hot_girl, person_barman_two ]  
-        }
+    "people": [person_hot_girl, person_barman_two]
+}
+
 room_exit = {
     "name": "exit",
 
-    "description":
-    """ """,
+    "description": "",
 
-    "exits": {""},
+    "exits": {},
 
     "items": [],
 
-   "people":{" "}
-        }
-
-
-
+    "people": []
+}
 
 rooms = {
     "Entrance": room_entrance,
@@ -238,6 +212,5 @@ rooms = {
     "Disco Room": room_disco,
     "Disco room bar": room_disco_bar,
     "Exit": room_exit,
-     "Stairs to third floor" : room_stairs3,
-
+    "Stairs to third floor" : room_stairs3,
 }
