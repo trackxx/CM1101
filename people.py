@@ -91,7 +91,7 @@ person_barman_two = {
     "fight": False,
     "items": True,
     "items": [items.item_jager],
-    "requirements": [],
+    "requirements": [items.item_id],
     "cost": 150
 }
 
