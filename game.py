@@ -60,7 +60,8 @@ def print_menu(exits, room_items, inv_items, people):
     for item in inv_items:
         print("DROP " + item["id"].upper() + " to drop your " + item["name"] + ".")
     for person in people:
-        print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
+        if person["name"] != "Coursemate Girl's Boyfriend":
+            print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
     print("What do you want to do?")
 
 
@@ -104,30 +105,32 @@ def execute_talk(person_name):
             print(line)
             time.sleep(2)
             if line.endswith("?"):
+                if people[str_person_name]["items"] == []:
+                    print("You have everthing you need from " + str_person_name + ".")
+                    time.sleep(2)
+                    break
                 loop_counter = 0
                 for response in people[str_person_name]["responses"]:
                     loop_counter += 1
                     print ("Press", loop_counter, "to say: '" + response + "'")
                 choice = input("Your choice: ")
-                #if choice == 0:
 
-                #elif choice == 1:
-
-                #else:
-
+                if int(choice) == 1:
+                    player.inventory.extend(people[str_person_name]["items"][:])
+                    people[str_person_name]["items"].clear()
+                elif int(choice) == 2:
+                    print("You leave.")
+                else:
+                    print("That doesn't make sense.")
         time.sleep(2)
         if str_person_name == "Coursemate Girl":
             str_person_name = "Coursemate Girl's Boyfriend"
         if people[str_person_name]["fight"] == True:
             fight_scene(people[str_person_name])
+        if people[str_person_name]["fight"] == True:
+            fight_scene(people[str_person_name])
     except KeyError:
         print("You cannot talk to " + str_person_name + ".")
-<<<<<<< HEAD
-
-=======
-    if people[str_person_name]["fight"] == True:
-        fight_scene(people[str_person_name])
->>>>>>> 55790a72e38731f585a85b135918fbdfaf3bed40
 
 def execute_command(command):
 

@@ -18,7 +18,6 @@ person_hotdog_guy = {
     "dialog": ["HOTDOG GUY: £1.50 for a Hotdog?"],
     "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
-    "items": True,
     "items": [items.item_hotdog],
     "requirements": [],
     "cost": 150
@@ -27,7 +26,7 @@ person_hotdog_guy = {
 person_wallet = {
     "name": "Smoking Friend",
     "health": 25,
-    "dialog": ["SMOKING FRIEND: Hey! I found you're wallet outside.", "You check your wallet and it's completely empty.", "YOU: Where's my money?", "SMOKING FRIEND: I don't know"],
+    "dialog": ["SMOKING FRIEND: Hey! I found you're wallet outside.", "You check your wallet and it's completely empty.", "YOU: Where's my money?!", "SMOKING FRIEND: I don't know"],
     "fight": True,
     "items": False,
     "weapon": weapons.weapon_lighter
@@ -36,6 +35,7 @@ person_wallet = {
 person_cloakroom = {
     "name": "Cloakroom Guy",
     "dialog": ["CLOAKROOM GUY: Would you like to retrieve your items?"],
+    "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
     "items": True,
     "items": [items.item_jacket],
@@ -45,7 +45,7 @@ person_cloakroom = {
 
 person_housemate_girl = {
     "name": "Housemate Girl",
-    "dialog": ["HOUSEMATE GIRL: Why would you do that?", "YOU: I'm sorry?"],
+    "dialog": ["HOUSEMATE GIRL: Why would you do that?!", "YOU: I'm sorry..."],
     "fight": False,
     "items": False
 }
@@ -61,7 +61,7 @@ person_housemate_guy = {
 
 person_coursemate_girl = {
     "name": "Coursemate Girl",
-    "dialog": ["COURSEMATE GIRL: Hey!", "YOU: Hey, can I buy you a drink?"],
+    "dialog": ["COURSEMATE GIRL: Hey!", "YOU: Hey, can I buy you a drink?!"],
     "fight": False,
     "items": False
 }
@@ -78,8 +78,8 @@ person_coursemate_boyfriend = {
 person_barman_one = {
     "name": "Barman",
     "dialog": ["BARMAN: Would you like a drink of water?"],
+    "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
-    "items": True,
     "items": [items.item_water],
     "requirements": [],
     "cost": 0
@@ -88,8 +88,8 @@ person_barman_one = {
 person_barman_two = {
     "name": "Disco Room Barman",
     "dialog": ["DISCO ROOM BARMAN: Would you like a jagerbomb, two for £1.50?"],
+    "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
-    "items": True,
     "items": [items.item_jager],
     "requirements": [],
     "cost": 150
@@ -98,8 +98,8 @@ person_barman_two = {
 person_smoking_area_guy = {
     "name": "Smoking Area Guy",
     "dialog": ["SMOKING AREA GUY: Mate I gotta bounce, do you want my VIP wristband?"],
+    "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
-    "items": True,
     "items": [items.item_wristband],
     "requirements": [],
     "cost": 0
@@ -113,7 +113,7 @@ person_rugby_guy = {
 
 person_hot_girl = {
     "name": "Hot Girl",
-    "dialog": ["HOT GIRL: Hey, what's your name?", "YOU: Do this shit in a bit", "HOT GIRL: You're cute, have these shots with me", "*Vodka Shot*", "HOT GIRL: I have to go, I've lost my friends but it was nice meeting you. Call me."],
+    "dialog": ["HOT GIRL: Hey, what's your name?!", "YOU: name", "HOT GIRL: You're cute, have these shots with me?", "*Vodka Shot*", "HOT GIRL: I have to go, I've lost my friends but it was nice meeting you. Call me."],
     "fight": False,
     "items": True,
     "items": [items.item_vodka, items.item_number],

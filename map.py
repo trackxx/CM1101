@@ -44,7 +44,7 @@ room_cloak = {
 
     "exits": {"east": "Stairs to first floor"},
 
-    "items": [item_keys, item_card],
+    "items": [],
 
     "people": [person_cloakroom]
 }
@@ -68,9 +68,9 @@ room_hotdog = {
 
     "exits": {"east": "Toilet", "west": "Stairs to first floor"},
 
-    "items": [item_wallet, item_hotdog, item_hotdog_stand],
+    "items": [item_wallet, item_hotdog_stand],
 
-    "people": [person_hotdog_guy, person_smoking_area_guy]
+    "people": [person_hotdog_guy, person_wallet]
 }
 
 room_toilet1 = {
@@ -140,7 +140,7 @@ room_Main = {
 
     "exits": {"east": "Pryzm room Bar", "west": "Stairs to second floor"},
 
-    "items": [item_water],
+    "items": [],
 
     "people": []
 }
@@ -188,7 +188,7 @@ room_disco_bar = {
 
     "exits": {"west": "Disco Room"},
 
-    "items": [item_jager, item_vodka],
+    "items": [item_vodka],
 
     "people": [person_hot_girl, person_barman_two]
 }
