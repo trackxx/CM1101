@@ -60,7 +60,7 @@ def print_menu(exits, room_items, inv_items, people):
     for item in inv_items:
         print("DROP " + item["id"].upper() + " to drop your " + item["name"] + ".")
     for person in people:
-        print("TALK TO " + person["name"].upper() + " to talk to " + person["name"] + ".")
+        print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
     print("What do you want to do?")
 
 
@@ -95,8 +95,20 @@ def execute_drop(item_id):
     if not dropped:
         print("You cannot take that.")
 
+def execute_talk(person_name):
+    str_person_name = person_name[0].capitalize()
+    for word in person_name[1:]:
+        str_person_name = str_person_name + " " + word.capitalize()
+    try:
+        for line in people[str_person_name]["dialog"]:
+            print(line)
+            time.sleep(2)
+        time.sleep(2)
+    except KeyError:
+        print("You cannot talk to " + str_person_name + ".")
 
 def execute_command(command):
+
     if 0 == len(command):
         return
 
@@ -118,9 +130,14 @@ def execute_command(command):
         else:
             print("Drop what?")
 
+    elif command[0] == "talk":
+        if len(command) > 1:
+            execute_talk(command[1:])
+        else:
+            print("Talk to who?")
+
     else:
         print("This makes no sense.")
-
 
 def menu(exits, room_items, inv_items, people):
     # Display menu

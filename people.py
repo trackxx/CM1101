@@ -1,11 +1,12 @@
 import weapons
 import items
+import player
 
-person_toilet_guy = {
+person_toilet_man = {
     "name": "Toilet Man",
     "health": 20,
-    "dialog": ["No spray, no lay... No splash, no gash... No Armarni, no punani... You gotta wash your fingers for de mingers...",
-               "No thanks..", "Here, have this..", "*Hands Washed*", "That'll be £3 please sir.", "I have no money...", "You owe me £3...", "*Pushed Over*"],
+    "dialog": ["TOILET MAN: No spray, no lay... No splash, no gash... No Armarni, no punani... You gotta wash your fingers for de mingers...",
+               "YOU: No thanks..", "TOILET MAN: Here, have this..", "*Hands Washed*", "TOILET MAN: That'll be £3 please sir.", "YOU: I have no money...", "TOILET MAN: You owe me £3...", "*Pushed Over*"],
     "fight": True,
     "items": False,
     "alive": True,
@@ -14,7 +15,7 @@ person_toilet_guy = {
 
 person_hotdog_guy = {
     "name": "Hotdog Guy",
-    "dialog": ["£1.50 for a Hotdog?"],
+    "dialog": ["HOTDOG GUY: £1.50 for a Hotdog?"],
     "fight": False,
     "items": True,
     "items": [items.item_hotdog],
@@ -25,7 +26,7 @@ person_hotdog_guy = {
 person_wallet = {
     "name": "Smoking Friend",
     "health": 25,
-    "dialog": ["Hey! I found you're wallet outside."],
+    "dialog": ["SMOKING FRIEND: Hey! I found you're wallet outside."],
     "fight": True,
     "items": False,
     "weapon": weapons.weapon_lighter
@@ -33,7 +34,7 @@ person_wallet = {
 
 person_cloakroom = {
     "name": "Cloakroom Guy",
-    "dialog": ["Would you like to retrieve your items?"],
+    "dialog": ["CLOAKROOM GUY: Would you like to retrieve your items?"],
     "fight": False,
     "items": True,
     "items": [items.item_jacket],
@@ -43,7 +44,7 @@ person_cloakroom = {
 
 person_housemate_girl = {
     "name": "Housemate Girl",
-    "dialog": ["Why would you do that?", "I'm sorry?"],
+    "dialog": ["HOUSEMATE GIRL: Why would you do that?", "YOU: I'm sorry?"],
     "fight": False,
     "items": False
 }
@@ -51,7 +52,7 @@ person_housemate_girl = {
 person_housemate_guy = {
     "name": "Housemate Guy",
     "health": 30,
-    "dialog": ["Just leave.", "But I've lost everything..", "Haha good, now get lost.", "What..."],
+    "dialog": ["HOUSEMATE GUY: Just leave.", "YOU: But I've lost everything..", "HOUSEMATE GUY: Haha good, now get lost.", "YOU: What..."],
     "fight": True,
     "items": False,
     "weapon": weapons.weapon_fists
@@ -59,7 +60,7 @@ person_housemate_guy = {
 
 person_coursemate_girl = {
     "name": "Coursemate Girl",
-    "dialog": ["Hey @", "Hey, can I buy you a drink?"],
+    "dialog": ["COURSEMATE GIRL: Hey!", "YOU: Hey, can I buy you a drink?"],
     "fight": False,
     "items": False
 }
@@ -67,7 +68,7 @@ person_coursemate_girl = {
 person_coursemate_boyfriend = {
     "name": "Coursemate Girl's Boyfriend",
     "health": 35,
-    "dialog": ["Oi", "...", "That's my girlfriend you mug"],
+    "dialog": ["COURSEMATE GIRL'S BOYFRIEND: Oi", "YOU: ...", "COURSEMATE GIRL'S BOYFRIEND: That's my girlfriend you mug"],
     "fight": True,
     "items": False,
     "weapon": weapons.weapon_cup
@@ -75,7 +76,7 @@ person_coursemate_boyfriend = {
 
 person_barman_one = {
     "name": "Barman",
-    "dialog": ["Would you like a drink of water?"],
+    "dialog": ["BARMAN: Would you like a drink of water?"],
     "fight": False,
     "items": True,
     "items": [items.item_water],
@@ -84,8 +85,8 @@ person_barman_one = {
 }
 
 person_barman_two = {
-    "name": "Barman",
-    "dialog": ["Would you like a jagerbomb, two for £1.50?"],
+    "name": "Disco Room Barman",
+    "dialog": ["DISCO ROOM BARMAN: Would you like a jagerbomb, two for £1.50?"],
     "fight": False,
     "items": True,
     "items": [items.item_jager],
@@ -95,7 +96,7 @@ person_barman_two = {
 
 person_smoking_area_guy = {
     "name": "Smoking Area Guy",
-    "dialog": ["Mate I gotta bounce, do you want my VIP wristband?"],
+    "dialog": ["SMOKING AREA GUY: Mate I gotta bounce, do you want my VIP wristband?"],
     "fight": False,
     "items": True,
     "items": [items.item_wristband],
@@ -111,7 +112,7 @@ person_rugby_guy = {
 
 person_hot_girl = {
     "name": "Hot Girl",
-    "dialog": ["Hey, what's your name?", "@", "You're cute, have these shots with me", "*Vodka Shot*", "I have to go, I've lost my friends but it's nice to meet you, @. Call me."],
+    "dialog": ["HOT GIRL: Hey, what's your name?", "YOU: Do this shit in a bit", "HOT GIRL: You're cute, have these shots with me", "*Vodka Shot*", "HOT GIRL: I have to go, I've lost my friends but it was nice meeting you. Call me."],
     "fight": False,
     "items": True,
     "items": [items.item_vodka, items.item_number],
@@ -123,4 +124,21 @@ person_bouncer = {
     "name": "Bouncer",
     "health": 50,
     "weapon": weapons.weapon_giant_fists
+}
+
+people = {
+    "Toilet Man": person_toilet_man,
+    "Hotdog Guy": person_hotdog_guy,
+    "Smoking Friend": person_wallet,
+    "Cloakroom Guy": person_cloakroom,
+    "Housemate Girl": person_housemate_girl,
+    "Housemate Guy": person_housemate_guy,
+    "Coursemate Girl": person_coursemate_girl,
+    "Coursemate Girl's Boyfriend": person_coursemate_boyfriend,
+    "Barman": person_barman_one,
+    "Disco Room Barman": person_barman_two,
+    "Smoking Area Guy": person_smoking_area_guy,
+    "Rugby Guy": person_rugby_guy,
+    "Hot Girl": person_hot_girl,
+    "Bouncer": person_bouncer
 }

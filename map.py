@@ -22,7 +22,7 @@ room_rnb_bar = {
 
     "items": [],
 
-    "people": [person_toilet_guy]
+    "people": []
 }
 
 room_Rnb = {
@@ -83,7 +83,7 @@ room_toilet1 = {
 
     "items": [item_money],
 
-    "people": [person_toilet_guy]
+    "people": [person_toilet_man]
 }
         
 room_toilet2 = {
