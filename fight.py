@@ -34,7 +34,7 @@ def attack_enemy(index):
     return True
 
 def print_fight_stats(index):
-    print("You Are Fighting: " + index["name"])
+    print("You Are Fighting " + index["name"])
     print("Their Health: " + str(index["health"]))
     print("Your Health: " + str(player.health))
     print("Your Weapon: " + player.current_weapon["name"])

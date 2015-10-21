@@ -122,7 +122,12 @@ def execute_talk(person_name):
             fight_scene(people[str_person_name])
     except KeyError:
         print("You cannot talk to " + str_person_name + ".")
+<<<<<<< HEAD
 
+=======
+    if people[str_person_name]["fight"] == True:
+        fight_scene(people[str_person_name])
+>>>>>>> 55790a72e38731f585a85b135918fbdfaf3bed40
 
 def execute_command(command):
 

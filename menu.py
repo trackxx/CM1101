@@ -3,7 +3,7 @@ import json
 import player
 from normalise import *
 from game import *
-from map import rooms
+import map
 
 def md5_hash(value):
     return hashlib.md5(value.encode('utf-8')).hexdigest()
@@ -38,10 +38,10 @@ def leaderboards():
     f.close()
 
 def new_game():
-    print("\nWelcome to PRYZM BREAK... I just need to ask you a few questions before we begin...")
+    print("\nWelcome to PRYZM BREAK...")
     player.name = input("What is your name? ")
     if play_game():
-        print("Congratulations!")
+        print("Congratulations you escaped from PRYZM!")
         completion_time = player.end_time - player.start_time
         add_leaderboards(player.name, completion_time)
         leaderboards()
@@ -53,18 +53,18 @@ def save_game():
     save_name = input("\nPlease enter a name for your save: ")
     print("Saving Game...")
     game_stats = {}
-    room_stats = rooms
+    room_stats = map.rooms
     game_stats["rooms"] = room_stats
     game_stats["inventory"] = player.inventory
+    game_stats["active_weapons"] = player.active_weapons
+    game_stats["current_weapon"] = player.current_weapon
     game_stats["current_room"] = player.current_room
     game_stats["health"] = player.health
-    game_stats["armour"] = player.armour
-    game_stats["mass"] = player.mass
-    game_stats["experience"] = player.experience
-    game_stats["level"] = player.level
+    game_stats["drunk"] = player.drunk
+    game_stats["money"] = player.money
     game_stats["name"] = player.name
-    game_stats["gender"] = player.gender
     game_stats["start_time"] = player.start_time
+
     game_hash = md5_hash(str(player.start_time) + player.name + save_name)
     game_stats["hash"] = game_hash
     f = open(save_name, 'w')
@@ -83,17 +83,16 @@ def load_game():
     if(hash_check != save_hash):
         print("Save file is invalid")
     else:
+        map.rooms = game_stats["rooms"]
         player.inventory = game_stats["inventory"]
+        player.active_weapons = game_stats["active_weapons"]
+        player.current_weapon = game_stats["current_weapon"]
         player.current_room = game_stats["current_room"]
         player.health = game_stats["health"]
-        player.armour = game_stats["armour"]
-        player.mass = game_stats["mass"]
-        player.experience = game_stats["experience"]
-        player.level = game_stats["level"]
+        player.drunk = game_stats["drunk"]
+        player.money = game_stats["money"]
         player.name = game_stats["name"]
-        player.gender = game_stats["gender"]
         player.start_time = game_stats["start_time"]
-        rooms = game_stats["rooms"]
         print("Game loaded successfully")
         start_game()
 

@@ -49,7 +49,7 @@ weapon_bucket = {
 weapon_spatula = {
     "id": "spatula",
     "name": "a Spatula",
-    "damage": 10,
+    "damage": 8,
     "description": "Are you gonna fight someone with a SPATULA? Seriously, get a proper weapon. Like a hotdog.",
     "illegal": False
 }
@@ -57,7 +57,7 @@ weapon_spatula = {
 weapon_hotdog = {
     "id": "hotdog",
     "name": "a Hotdog",
-    "damage": 8,
+    "damage": 10,
     "description": "'Mustard, ketchup, anything else, love?' If you never fought with a hotdog, now it's time to prove fastfood lovers, that junky food is dangerous!",
     "illegal": False
 }
