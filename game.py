@@ -49,7 +49,7 @@ def print_exit(direction, leads_to):
     print("GO " + direction.upper() + " to " + leads_to + ".")
 
 
-def print_menu(exits, room_items, inv_items):
+def print_menu(exits, room_items, inv_items, people):
     print("You can:")
     # Iterate over available exits
     for direction in exits:
@@ -59,6 +59,8 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + item["id"].upper() + " to take " + item["name"] + ".")
     for item in inv_items:
         print("DROP " + item["id"].upper() + " to drop your " + item["name"] + ".")
+    for person in people:
+        print("TALK TO " + person["name"].upper() + " to talk to " + person["name"] + ".")
     print("What do you want to do?")
 
 
@@ -120,9 +122,9 @@ def execute_command(command):
         print("This makes no sense.")
 
 
-def menu(exits, room_items, inv_items):
+def menu(exits, room_items, inv_items, people):
     # Display menu
-    print_menu(exits, room_items, inv_items)
+    print_menu(exits, room_items, inv_items, people)
     # Read player's input
     user_input = input("> ")
     # Normalise the input
@@ -148,7 +150,7 @@ def play_game():
         print_room(player.current_room)
         print_inventory_items(player.inventory)
         # Show the menu with possible actions and ask the player
-        command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
+        command = menu(player.current_room["exits"], player.current_room["items"], player.inventory, player.current_room["people"])
         # Execute the player's command
         execute_command(command)
         # fight_scene()

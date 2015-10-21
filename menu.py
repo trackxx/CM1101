@@ -38,7 +38,7 @@ def leaderboards():
     f.close()
 
 def new_game():
-    print("\nWelcome to GAME... I just need to ask you a few questions before we begin.")
+    print("\nWelcome to PRYZM BREAK... I just need to ask you a few questions before we begin...")
     player.name = input("What is your name? ")
     if play_game():
         print("Congratulations!")

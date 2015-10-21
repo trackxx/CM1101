@@ -32,7 +32,9 @@ room_Rnb = {
 
     "exits": {"west": "Entrance", "east": "Rnb Bar"},
 
-    "items": [item_phone]
+    "items": [item_phone],
+
+    "people": []
 }
 
 room_cloak = {
@@ -42,7 +44,7 @@ room_cloak = {
 
     "exits": {"east": "Stairs to first floor"},
 
-    "items": [item_keys,item_card],
+    "items": [item_keys, item_card],
     
     "people": [person_cloakroom]
 }
@@ -54,7 +56,9 @@ room_stairs1 = {
 
     "exits": {"north": "Stairs to second floor", "south": "Entrance", "east": "Hotdog stand"},
 
-    "items": []
+    "items": [],
+
+    "people": []
 }
 
 room_hotdog = {
@@ -65,7 +69,7 @@ room_hotdog = {
 
     "exits": {"east": "Toilet", "west": "Stairs to first floor"},
 
-    "items": [item_wallet,item_hotdog,item_hotdog_stand],
+    "items": [item_wallet, item_hotdog, item_hotdog_stand],
 
     "people": [person_hotdog_guy, person_smoking_area_guy]
 }
@@ -90,6 +94,8 @@ room_toilet2 = {
     "exits": {"west": "Hotdog stand"},
 
     "items": [item_cologne],
+
+    "people": []
 }
 
 room_stairs2 = {
@@ -100,7 +106,9 @@ room_stairs2 = {
 
     "exits": {"west": "Vip Room", "south": "Stairs to first floor", "east": "Pryzm Room", "north": "Stairs to third floor"},
 
-    "items": []
+    "items": [],
+
+    "people": []
 }
 
 room_stairs3 = {
@@ -110,7 +118,9 @@ room_stairs3 = {
 
     "exits": {"north": "Disco Room", "south": "Stairs to second floor"},
 
-    "items": []
+    "items": [],
+
+    "people": []
 }
 
 room_vip = {
@@ -120,9 +130,9 @@ room_vip = {
 
     "exits": {"east": "Stairs to second floor"},
 
-    "items": [item_student_card,item_table],
+    "items": [item_student_card, item_table],
 
-    "people": [person_housemate_girl,person_housemate_guy]
+    "people": [person_housemate_girl, person_housemate_guy]
 }
 
 room_Main = {
@@ -132,7 +142,9 @@ room_Main = {
 
     "exits": {"east": "Pryzm room Bar", "west": "Stairs to second floor"},
 
-    "items": [item_water]
+    "items": [item_water],
+
+    "people": []
 }
 
 room_main_bar = {
@@ -144,7 +156,7 @@ room_main_bar = {
 
     "items": [item_id],
 
-    "people": [person_coursemate_girl,person_coursemate_boyfriend,person_barman_one]
+    "people": [person_coursemate_girl, person_coursemate_boyfriend, person_barman_one]
 }
 
 room_smoking = {
@@ -156,7 +168,7 @@ room_smoking = {
 
     "items": [item_wristband],
 
-    "people":[person_smoking_area_guy]
+    "people": [person_smoking_area_guy]
 }
 
 room_disco = {
@@ -178,7 +190,7 @@ room_disco_bar = {
 
     "exits": {"west": "Disco Room"},
 
-    "items": [item_jager,item_vodka],
+    "items": [item_jager, item_vodka],
 
     "people": [person_hot_girl, person_barman_two]
 }
@@ -212,5 +224,5 @@ rooms = {
     "Disco Room": room_disco,
     "Disco room bar": room_disco_bar,
     "Exit": room_exit,
-    "Stairs to third floor" : room_stairs3,
+    "Stairs to third floor": room_stairs3,
 }
