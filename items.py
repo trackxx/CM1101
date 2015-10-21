@@ -61,7 +61,7 @@ item_money = {
 item_number = {
     "id": "number",
     "name": "a Number",
-    "description": """description""",
+    "description": """A girl's number, nice work.""",
     "interactable": False,
     "storable": True
 }
@@ -69,7 +69,7 @@ item_number = {
 item_id = {
     "id": "id",
     "name": "an ID",
-    "description": """description""",
+    "description": """Your ID, you need this to buy drinks.""",
     "interactable": False,
     "storable": True
 }
