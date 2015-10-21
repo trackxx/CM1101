@@ -27,7 +27,7 @@ person_hotdog_guy = {
 person_wallet = {
     "name": "Smoking Friend",
     "health": 25,
-    "dialog": ["SMOKING FRIEND: Hey! I found you're wallet outside."],
+    "dialog": ["SMOKING FRIEND: Hey! I found you're wallet outside.", "You check your wallet and it's completely empty.", "YOU: Where's my money?", "SMOKING FRIEND: I don't know"],
     "fight": True,
     "items": False,
     "weapon": weapons.weapon_lighter
