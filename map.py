@@ -6,7 +6,7 @@ room_entrance = {
 
     "description": "< DESCRIPTION HERE >",
 
-    "exits": {"west": "Exit", "east" : "Rnb Room", "north" : "Stairs to first floor"},
+    "exits": {"west": "Exit", "east": "Rnb Room", "north": "Stairs to first floor"},
 
     "items": [],
 
@@ -45,7 +45,7 @@ room_cloak = {
     "exits": {"east": "Stairs to first floor"},
 
     "items": [item_keys, item_card],
-    
+
     "people": [person_cloakroom]
 }
 
@@ -84,7 +84,7 @@ room_toilet1 = {
 
     "people": [person_toilet_man]
 }
-        
+
 room_toilet2 = {
     "name": "Toilet2",
 

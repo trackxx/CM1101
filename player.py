@@ -3,7 +3,7 @@ from items import *
 from map import rooms
 
 inventory = []
-active_weapons = [weapons.weapon_fists]
+active_weapons = [weapons.weapon_fists, weapons.weapon_foot]
 current_weapon = weapons.weapon_fists
 current_room = rooms["Toilet"]
 health = 100
