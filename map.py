@@ -154,7 +154,7 @@ room_main_bar = {
 
     "items": [item_id],
 
-    "people": [person_coursemate_girl, person_coursemate_boyfriend, person_barman_one]
+    "people": [person_coursemate_girl, person_barman_one]
 }
 
 room_smoking = {
