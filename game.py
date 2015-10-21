@@ -103,13 +103,26 @@ def execute_talk(person_name):
         for line in people[str_person_name]["dialog"]:
             print(line)
             time.sleep(2)
+            if line.endswith("?"):
+                loop_counter = 0
+                for response in people[str_person_name]["responses"]:
+                    loop_counter += 1
+                    print ("Press", loop_counter, "to say: '" + response + "'")
+                choice = input("Your choice: ")
+                #if choice == 0:
+
+                #elif choice == 1:
+
+                #else:
+
         time.sleep(2)
+        if str_person_name == "Coursemate Girl":
+            str_person_name = "Coursemate Girl's Boyfriend"
+        if people[str_person_name]["fight"] == True:
+            fight_scene(people[str_person_name])
     except KeyError:
         print("You cannot talk to " + str_person_name + ".")
-    if str_person_name == "Coursemate Girl":
-        str_person_name = "Coursemate Girl's Boyfriend"
-    if people[str_person_name]["fight"] == True:
-        fight_scene(people[str_person_name])
+
 
 def execute_command(command):
 

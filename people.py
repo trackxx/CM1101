@@ -16,7 +16,7 @@ person_toilet_man = {
 person_hotdog_guy = {
     "name": "Hotdog Guy",
     "dialog": ["HOTDOG GUY: £1.50 for a Hotdog?"],
-    "responses": "",
+    "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
     "items": True,
     "items": [items.item_hotdog],
