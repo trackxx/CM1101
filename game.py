@@ -106,6 +106,8 @@ def execute_talk(person_name):
         time.sleep(2)
     except KeyError:
         print("You cannot talk to " + str_person_name + ".")
+    if people[str_person_name]["fight"] == True:
+        fight_scene(people[str_person_name])
 
 def execute_command(command):
 

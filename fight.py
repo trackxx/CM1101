@@ -15,17 +15,17 @@ def use_item():
     pass
 
 def attack_enemy(index):
-    print("You attacked " + player.current_room["people"][index]["name"] + " with your " + player.current_weapon["name"])
+    print("You attacked " + index["name"] + " with your " + player.current_weapon["name"])
     print("You inflicted " + str(player.current_weapon["damage"]) + " damage!")
-    player.current_room["people"][index]["health"] -= player.current_weapon["damage"]
+    index["health"] -= player.current_weapon["damage"]
     time.sleep(3)
-    if player.current_room["people"][index]["health"] <= 0:
-        print("You killed " + player.current_room["people"][index]["name"] + "!")
+    if index["health"] <= 0:
+        print("You killed " + index["name"] + "!")
         time.sleep(2)
         return True
-    print(player.current_room["people"][index]["name"] + " attacked you with " + player.current_room["people"][index]["weapon"]["name"])
-    print("You lost " + str(player.current_room["people"][index]["weapon"]["damage"]) + " health!\n")
-    player.health -= player.current_room["people"][index]["weapon"]["damage"]
+    print(index["name"] + " attacked you with " + index["weapon"]["name"])
+    print("You lost " + str(index["weapon"]["damage"]) + " health!\n")
+    player.health -= index["weapon"]["damage"]
     time.sleep(3)
     if player.health <= 0:
         print("You have been killed.")
@@ -34,8 +34,8 @@ def attack_enemy(index):
     return True
 
 def print_fight_stats(index):
-    print("You Are Fighting " + player.current_room["people"][index]["name"])
-    print("Their Health: " + str(player.current_room["people"][index]["health"]))
+    print("You Are Fighting " + index["name"])
+    print("Their Health: " + str(index["health"]))
     print("Your Health: " + str(player.health))
     print("Your Weapon: " + player.current_weapon["name"])
 
@@ -53,7 +53,7 @@ def fight_scene(index):
             use_item()
         elif choice == 3:
             if attack_enemy(index):
-                if player.current_room["people"][index]["health"] <= 0:
+                if index["health"] <= 0:
                     alive = False
             else:
                 alive = False
