@@ -42,20 +42,22 @@ item_wristband = {
 
 item_hotdog = {
     "id": "hotdog",
-    "name": "a Hotdog",
+    "name": "Hotdog",
     "description": """Student's breakfast, lunch, dinner and a nightime snack in one thing. God bless fast food.""",
     "interactable": True,
     "type": "health",
-    "health": 20,
-    "storable": True
+    "amount": 20,
+    "storable": False
 }
 
 item_money = {
     "id": "money",
     "name": "Money",
     "description": """If you need a description for money, you probably can't even read this.""",
-    "interactable": False,
-    "storable": True
+    "interactable": True,
+    "type": "money",
+    "amount": 300,
+    "storable": False
 }
 
 item_number = {
@@ -88,8 +90,8 @@ item_water = {
     "description": """Blessed nectar of gods. Underrestimated during the night, praised the next day.""",
     "interactable": True,
     "type": "drunkness",
-    "drunkness": -10,
-    "storable": True
+    "amount": -10,
+    "storable": False
 }
 
 item_jager = {
@@ -98,8 +100,8 @@ item_jager = {
     "description": """*Hick* Germans sure know *hick* how to make us get wasted.""",
     "interactable": True,
     "type": "drunkness",
-    "drunkness": 20,
-    "storable": True
+    "amount": 20,
+    "storable": False
 }
 
 item_vodka = {
@@ -108,8 +110,8 @@ item_vodka = {
     "description": """IN SOVIET RUSSIA, VODKA DRINKS YOU.""",
     "interactable": True,
     "type": "drunkness",
-    "drunkness": 30,
-    "storable": True
+    "amount": 30,
+    "storable": False
 }
 
 item_ticket = {

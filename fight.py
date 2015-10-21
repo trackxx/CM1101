@@ -20,21 +20,21 @@ def attack_enemy(index):
     index["health"] -= player.current_weapon["damage"]
     time.sleep(3)
     if index["health"] <= 0:
-        print("You killed " + index["name"] + "!")
+        print("You killed " + index["name"] + "!\n")
         time.sleep(2)
         return True
     print(index["name"] + " attacked you with " + index["weapon"]["name"])
-    print("You lost " + str(index["weapon"]["damage"]) + " health!\n")
+    print("You lost " + str(index["weapon"]["damage"]) + " health!")
     player.health -= index["weapon"]["damage"]
     time.sleep(3)
     if player.health <= 0:
-        print("You have been killed.")
+        print("You have been killed.\n")
         time.sleep(3)
         return False
     return True
 
 def print_fight_stats(index):
-    print("You Are Fighting " + index["name"])
+    print("\nYou Are Fighting " + index["name"])
     print("Their Health: " + str(index["health"]))
     print("Your Health: " + str(player.health))
     print("Your Weapon: " + player.current_weapon["name"])
@@ -54,6 +54,7 @@ def fight_scene(index):
         elif choice == 3:
             if attack_enemy(index):
                 if index["health"] <= 0:
+                    index["alive"] = False
                     alive = False
             else:
                 alive = False

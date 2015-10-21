@@ -1,4 +1,4 @@
-from items import *
+import items
 from people import *
 
 room_entrance = {
@@ -10,7 +10,9 @@ room_entrance = {
 
     "items": [],
 
-    "people": [person_bouncer]
+    "people": [person_bouncer],
+
+    "requirements": []
 }
 
 room_rnb_bar = {
@@ -22,7 +24,9 @@ room_rnb_bar = {
 
     "items": [],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_Rnb = {
@@ -32,9 +36,11 @@ room_Rnb = {
 
     "exits": {"west": "Entrance", "east": "Rnb Bar"},
 
-    "items": [item_phone],
+    "items": [items.item_phone],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_cloak = {
@@ -46,7 +52,9 @@ room_cloak = {
 
     "items": [],
 
-    "people": [person_cloakroom]
+    "people": [person_cloakroom],
+
+    "requirements": [items.item_ticket]
 }
 
 room_stairs1 = {
@@ -58,7 +66,9 @@ room_stairs1 = {
 
     "items": [],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_hotdog = {
@@ -68,9 +78,11 @@ room_hotdog = {
 
     "exits": {"east": "Toilet", "west": "Stairs to first floor"},
 
-    "items": [item_wallet, item_hotdog_stand],
+    "items": [items.item_wallet, items.item_hotdog_stand],
 
-    "people": [person_hotdog_guy, person_wallet]
+    "people": [person_hotdog_guy, person_wallet],
+
+    "requirements": []
 }
 
 room_toilet1 = {
@@ -80,9 +92,11 @@ room_toilet1 = {
 
     "exits": {"west": "Hotdog stand"},
 
-    "items": [item_money],
+    "items": [items.item_money],
 
-    "people": [person_toilet_man]
+    "people": [person_toilet_man],
+
+    "requirements": []
 }
 
 room_toilet2 = {
@@ -92,9 +106,11 @@ room_toilet2 = {
 
     "exits": {"west": "Hotdog stand"},
 
-    "items": [item_cologne],
+    "items": [items.item_cologne],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_stairs2 = {
@@ -106,7 +122,9 @@ room_stairs2 = {
 
     "items": [],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_stairs3 = {
@@ -118,7 +136,9 @@ room_stairs3 = {
 
     "items": [],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_vip = {
@@ -128,9 +148,11 @@ room_vip = {
 
     "exits": {"east": "Stairs to second floor"},
 
-    "items": [item_student_card, item_table],
+    "items": [items.item_student_card, items.item_table],
 
-    "people": [person_housemate_girl, person_housemate_guy]
+    "people": [person_housemate_girl, person_housemate_guy],
+
+    "requirements": [items.item_wristband]
 }
 
 room_Main = {
@@ -142,7 +164,9 @@ room_Main = {
 
     "items": [],
 
-    "people": []
+    "people": [],
+
+    "requirements": []
 }
 
 room_main_bar = {
@@ -152,9 +176,11 @@ room_main_bar = {
 
     "exits": {"west": "Pryzm Room", "south": "Smoking area"},
 
-    "items": [item_id],
+    "items": [items.item_id],
 
-    "people": [person_coursemate_girl, person_coursemate_boyfriend, person_barman_one]
+    "people": [person_coursemate_boyfriend, person_barman_one],
+
+    "requirements": []
 }
 
 room_smoking = {
@@ -162,11 +188,13 @@ room_smoking = {
 
     "description": "< DESCRIPTION HERE >",
 
-    "exits": {"north": "Pryzm room bar"},
+    "exits": {"north": "Pryzm room Bar"},
 
-    "items": [item_wristband],
+    "items": [items.item_wristband],
 
-    "people": [person_smoking_area_guy]
+    "people": [person_smoking_area_guy],
+
+    "requirements": []
 }
 
 room_disco = {
@@ -176,9 +204,11 @@ room_disco = {
 
     "exits": {"east": "Disco room bar", "south": "Stairs to second floor"},
 
-    "items": [item_number, item_ticket],
+    "items": [items.item_number, items.item_ticket],
 
-    "people": [person_rugby_guy]
+    "people": [person_rugby_guy],
+
+    "requirements": []
 }
 
 room_disco_bar = {
@@ -188,9 +218,11 @@ room_disco_bar = {
 
     "exits": {"west": "Disco Room"},
 
-    "items": [item_vodka],
+    "items": [items.item_vodka],
 
-    "people": [person_hot_girl, person_barman_two]
+    "people": [person_hot_girl, person_barman_two],
+
+    "requirements": []
 }
 
 room_exit = {
@@ -202,7 +234,9 @@ room_exit = {
 
     "items": [],
 
-    "people": []
+    "people": [],
+
+    "requirements": [items.item_student_card, items.item_keys, items.item_card]
 }
 
 rooms = {

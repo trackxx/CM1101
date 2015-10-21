@@ -1,3 +1,4 @@
+import os
 import player
 import time
 from fight import *
@@ -48,19 +49,28 @@ def exit_leads_to(exits, direction):
 def print_exit(direction, leads_to):
     print("GO " + direction.upper() + " to " + leads_to + ".")
 
+def print_stats():
+    print("Stats:")
+    print("Health: " + str(player.health))
+    print("Drunk: " + str(player.drunk))
+    print("Money: " + str(player.money) + "\n")
 
 def print_menu(exits, room_items, inv_items, people):
+    untalkable = ["Coursemate Girl's Boyfriend", "Smoking Friend", "Toilet Man"]
     print("You can:")
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
         print_exit(direction, exit_leads_to(exits, direction))
     for item in room_items:
-        print("TAKE " + item["id"].upper() + " to take " + item["name"] + ".")
+        if(item["storable"]):
+            print("TAKE " + item["id"].upper() + " to take " + item["name"] + ".")
+        if(item["interactable"]):
+            print("INTERACT " + item["id"].upper() + " to interact with " + item["name"] + ".")
     for item in inv_items:
         print("DROP " + item["id"].upper() + " to drop your " + item["name"] + ".")
     for person in people:
-        if person["name"] != "Coursemate Girl's Boyfriend":
+        if not person["name"] in untalkable:
             print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
     print("What do you want to do?")
 
@@ -70,7 +80,17 @@ def is_valid_exit(exits, chosen_exit):
 
 
 def execute_go(direction):
-    player.current_room = rooms[player.current_room["exits"][direction]]
+    directions = ["north", "east", "south", "west"]
+    if direction.lower() in directions:
+        can_move = True
+        for item in rooms[player.current_room["exits"][direction]]["requirements"]:
+            if item not in player.inventory:
+                can_move = False
+        if(can_move):
+            player.current_room = rooms[player.current_room["exits"][direction]]
+        else:
+            print("You can't go here.")
+            time.slee(2)
 
 
 def execute_take(item_id):
@@ -83,6 +103,7 @@ def execute_take(item_id):
 
     if not taken:
         print("You cannot take that.")
+        time.sleep(1)
 
 
 def execute_drop(item_id):
@@ -112,12 +133,19 @@ def execute_talk(person_name):
                 loop_counter = 0
                 for response in people[str_person_name]["responses"]:
                     loop_counter += 1
-                    print ("Press", loop_counter, "to say: '" + response + "'")
+                    print("Press", loop_counter, "to say: '" + response + "'")
                 choice = input("Your choice: ")
-
+                cost = int(people[str_person_name]["items"][0]["amount"])
+                name = str(people[str_person_name]["items"][0]["name"])
                 if int(choice) == 1:
-                    player.inventory.extend(people[str_person_name]["items"][:])
-                    people[str_person_name]["items"].clear()
+                    if cost <= player.money:
+                        player.inventory.extend(people[str_person_name]["items"][:])
+                        people[str_person_name]["items"].clear()
+                        print("You got " + name)
+                        time.sleep(2)
+                    else:
+                        print("Can't afford it.")
+                        time.sleep(2)
                 elif int(choice) == 2:
                     print("You leave.")
                 else:
@@ -127,10 +155,31 @@ def execute_talk(person_name):
             str_person_name = "Coursemate Girl's Boyfriend"
         if people[str_person_name]["fight"] == True:
             fight_scene(people[str_person_name])
-        if people[str_person_name]["fight"] == True:
-            fight_scene(people[str_person_name])
     except KeyError:
         print("You cannot talk to " + str_person_name + ".")
+
+def execute_interact(item_id):
+    for item in player.current_room["items"]:
+        if(item["id"] == item_id):
+            if item["type"] == "money":
+                player.money += int(item["amount"])
+                print("You found £" + str(player.money / 100) + "!")
+            elif item["type"] == "drunkness":
+                player.drunk += int(item["amount"])
+                print("You drank " + item["name"])
+            elif item["type"] == "weapons":
+                for i in range(0, len(item["items"])):
+                    print("Press " + str(i + 1) + " For " + item["items"][i]["name"])
+                choice = int(input("Please choose a weapon: "))
+                player.active_weapons.append(item["items"][(choice - 1)])
+                print("You picked up " + item["items"][(choice - 1)]["name"])
+            elif item["type"] == "item":
+                for i in range(0, len(item["items"])):
+                    player.inventory.append(item["items"])
+                    print("You found " + item["name"])
+            player.current_room["items"].remove(item)
+            time.sleep(2)
+
 
 def execute_command(command):
 
@@ -161,6 +210,12 @@ def execute_command(command):
         else:
             print("Talk to who?")
 
+    elif command[0] == "interact":
+        if len(command) > 1:
+            execute_interact(command[1])
+        else:
+            print("Interact with what?")
+
     else:
         print("This makes no sense.")
 
@@ -185,25 +240,50 @@ def check_completion():
     else:
         return False
 
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def play_game():
     player.start_time = int(time.time())
     while not check_completion():
         # Display game status (room description, inventory etc.)
         print_room(player.current_room)
+        print_stats()
         print_inventory_items(player.inventory)
+        for person in player.current_room["people"]:
+            if person["fight"] == True and person["alive"] == True and person["health"] > 0:
+                execute_talk(person["name"].split(" "))
+        if player.health <= 0:
+            return False
         # Show the menu with possible actions and ask the player
         command = menu(player.current_room["exits"], player.current_room["items"], player.inventory, player.current_room["people"])
         # Execute the player's command
         execute_command(command)
-        # fight_scene()
-        if player.health <= 0:
-            return False
+        clear_console()
     player.end_time = int(time.time())
     return True
 
 # This is the entry point of our program
 def main():
-    print("Welcome to PRZYM BREAK\n")
+    print("-----------------------------------------------------------------------")
+    print("__          ________ _      _____ ____  __  __ ______   _______ ____   ")
+    print("\ \        / /  ____| |    / ____/ __ \|  \/  |  ____| |__   __/ __ \  ")
+    print(" \ \  /\  / /| |__  | |   | |   | |  | | \  / | |__       | | | |  | | ")
+    print("  \ \/  \/ / |  __| | |   | |   | |  | | |\/| |  __|      | | | |  | | ")
+    print("   \  /\  /  | |____| |___| |___| |__| | |  | | |____     | | | |__| | ")
+    print("    \/  \/   |______|______\_____\____/|_|  |_|______|    |_|  \____/  ")
+    print("                                                                       ")
+    print("                                                                       ")
+    print(" _____  _______     __________  __   ____  _____  ______          _  __")
+    print("|  __ \|  __ \ \   / /___  /  \/  | |  _ \|  __ \|  ____|   /\   | |/ /")
+    print("| |__) | |__) \ \_/ /   / /| \  / | | |_) | |__) | |__     /  \  | ' / ")
+    print("|  ___/|  _  / \   /   / / | |\/| | |  _ <|  _  /|  __|   / /\ \ |  <  ")
+    print("| |    | | \ \  | |   / /__| |  | | | |_) | | \ \| |____ / ____ \| . \ ")
+    print("""|_|    |_|  \_\ |_|  /_____|_|  |_| |____/|_|  \_\______/_/    \_\_|\_\\
+    """)
+    print("")
+    print("-----------------------------------------------------------------------")
+    print("")
     show_menu()
 
 

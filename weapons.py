@@ -1,7 +1,7 @@
 weapon_fists = {
     "id": "fist",
     "name": "Fists",
-    "damage": 5,
+    "damage": 500,
     "description": "Those are your fists.",
     "illegal": False
 }
