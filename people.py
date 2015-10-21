@@ -91,7 +91,7 @@ person_barman_two = {
     "responses": ["Yeah, go on.", "No thanks."],
     "fight": False,
     "items": [items.item_jager],
-    "requirements": [],
+    "requirements": [items.item_id],
     "cost": 150
 }
 
