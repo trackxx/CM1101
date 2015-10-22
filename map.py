@@ -62,7 +62,7 @@ room_stairs1 = {
 
     "description": "< DESCRIPTION HERE >",
 
-    "exits": {"north": "Stairs to second floor", "south": "Entrance", "east": "Hotdog stand"},
+    "exits": {"north": "Stairs to second floor", "south": "Entrance", "east": "Hotdog stand", "west": "Cloak room"},
 
     "items": [],
 
@@ -236,7 +236,7 @@ room_exit = {
 
     "people": [],
 
-    "requirements": [items.item_student_card, items.item_keys, items.item_card]
+    "requirements": [items.item_student_card, items.item_keys]
 }
 
 rooms = {

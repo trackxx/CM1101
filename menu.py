@@ -93,7 +93,13 @@ def load_game():
         player.name = game_stats["name"]
         player.start_time = game_stats["start_time"]
         print("Game loaded successfully")
-        start_game()
+        if play_game():
+            print("Congratulations you escaped from PRYZM!")
+            completion_time = player.end_time - player.start_time
+            add_leaderboards(player.name, completion_time)
+            leaderboards()
+        else:
+            print("GAME OVER")
 
 def show_menu():
     menu_items = ["New Game", "Save Current Game", "Load Game", "Leaderboards"]

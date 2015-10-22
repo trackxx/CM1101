@@ -1,7 +1,7 @@
 import weapons
 
 item_student_card = {
-    "id": "student card",
+    "id": "student",
     "name": "a Student Card",
     "description": """Your student card. Whoever took the picture, made sure to get your worse profile""",
     "interactable": False,

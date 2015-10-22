@@ -2,7 +2,6 @@ import player
 import time
 from people import *
 from weapons import *
-from game import *
 
 def weapon_selection(index):
     for i in range(0, len(player.active_weapons)):
@@ -11,13 +10,46 @@ def weapon_selection(index):
     player.current_weapon = player.active_weapons[(choice - 1)]
     print_fight_menu(index)
 
+def consume_item(item):
+        if item["type"] == "money":
+            player.money += int(item["amount"])
+            print("You found £" + str(player.money / 100) + "!")
+        elif item["type"] == "drunkness":
+            player.drunk += int(item["amount"])
+            print("You drank " + item["name"])
+        elif item["type"] == "health":
+            player.health += int(item["amount"])
+            print("You had a " + item["name"])
+        elif item["type"] == "weapons":
+            for i in range(0, len(item["items"])):
+                print("Press " + str(i + 1) + " For " + item["items"][i]["name"])
+            choice = int(input("Please choose a weapon: "))
+            player.active_weapons.append(item["items"][(choice - 1)])
+            print("You picked up " + item["items"][(choice - 1)]["name"])
+        elif item["type"] == "item":
+            for i in range(0, len(item["items"])):
+                player.inventory.append(item["items"])
+                print("You found " + item["name"])
+
+def execute_interact(item_id):
+    for item in player.current_room["items"]:
+        if(item["id"] == item_id):
+            consume_item(item)
+            player.current_room["items"].remove(item)
+            time.sleep(2)
+    for item in player.inventory:
+        if(item["id"] == item_id):
+            consume_item(item)
+            player.inventory.remove(item)
+            time.sleep(2)
+
 def use_item():
     '''Use items to regain health and inflict damage to your opponent'''
     for item in player.inventory:
         if item["interactable"] == True:
             choice = input("INTERACT " + item["id"].upper() + " to interact with " + item["name"] + ".")
             normalised_user_input = normalise_input(choice)
-            execute_command(normalised_user_input)
+            execute_interact(normalised_user_input[1])
 
 def attack_enemy(index):
     print("You attacked " + index["name"] + " with your " + player.current_weapon["name"])

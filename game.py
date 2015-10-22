@@ -74,6 +74,7 @@ def print_menu(exits, room_items, inv_items, people):
     for person in people:
         if not person["name"] in untalkable:
             print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
+    # print("MENU to go to the main menu.")
     print("What do you want to do?")
 
 
@@ -92,7 +93,7 @@ def execute_go(direction):
             player.current_room = rooms[player.current_room["exits"][direction]]
         else:
             print("You can't go here.")
-            time.slee(2)
+            time.sleep(2)
 
 
 def execute_take(item_id):
@@ -228,6 +229,9 @@ def execute_command(command):
             execute_interact(command[1])
         else:
             print("Interact with what?")
+
+    elif command[0] == "menu":
+        show_menu()
 
     else:
         print("This makes no sense.")
