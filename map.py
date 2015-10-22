@@ -4,7 +4,7 @@ from people import *
 room_entrance = {
     "name": "Entrance",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Exit", "east": "Rnb Room", "north": "Stairs to first floor"},
 
@@ -18,7 +18,7 @@ room_entrance = {
 room_rnb_bar = {
     "name": " Rnb Bar",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Rnb Room"},
 
@@ -32,7 +32,7 @@ room_rnb_bar = {
 room_Rnb = {
     "name": "Rnb Room",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Entrance", "east": "Rnb Bar"},
 
@@ -46,11 +46,11 @@ room_Rnb = {
 room_cloak = {
     "name": "Cloak room",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"east": "Stairs to first floor"},
 
-    "items": [],
+    "items": [items.item_jacket],
 
     "people": [person_cloakroom],
 
@@ -60,7 +60,7 @@ room_cloak = {
 room_stairs1 = {
     "name": "Stairs to first floor",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"north": "Stairs to second floor", "south": "Entrance", "east": "Hotdog stand", "west": "Cloak room"},
 
@@ -74,7 +74,7 @@ room_stairs1 = {
 room_hotdog = {
     "name": "Hotdog stand",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"east": "Toilet", "west": "Stairs to first floor"},
 
@@ -88,7 +88,7 @@ room_hotdog = {
 room_toilet1 = {
     "name": "Toilet",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Hotdog stand"},
 
@@ -102,7 +102,7 @@ room_toilet1 = {
 room_toilet2 = {
     "name": "Toilet2",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Hotdog stand"},
 
@@ -116,7 +116,7 @@ room_toilet2 = {
 room_stairs2 = {
     "name": "Stairs to second floor ",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Vip Room", "south": "Stairs to first floor", "east": "Pryzm Room", "north": "Stairs to third floor"},
 
@@ -130,7 +130,7 @@ room_stairs2 = {
 room_stairs3 = {
     "name": "Stairs to third floor ",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"north": "Disco Room", "south": "Stairs to second floor"},
 
@@ -144,7 +144,7 @@ room_stairs3 = {
 room_vip = {
     "name": "Vip Room",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"east": "Stairs to second floor"},
 
@@ -158,7 +158,7 @@ room_vip = {
 room_Main = {
     "name": "Pryzm Room",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"east": "Pryzm room Bar", "west": "Stairs to second floor"},
 
@@ -172,7 +172,7 @@ room_Main = {
 room_main_bar = {
     "name": "Pryzm room Bar",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Pryzm Room", "south": "Smoking area"},
 
@@ -186,7 +186,7 @@ room_main_bar = {
 room_smoking = {
     "name": "Smoking area",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"north": "Pryzm room Bar"},
 
@@ -200,7 +200,7 @@ room_smoking = {
 room_disco = {
     "name": "Disco Room",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"east": "Disco room bar", "south": "Stairs to second floor"},
 
@@ -214,7 +214,7 @@ room_disco = {
 room_disco_bar = {
     "name": "Disco room bar",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {"west": "Disco Room"},
 
@@ -228,7 +228,7 @@ room_disco_bar = {
 room_exit = {
     "name": "exit",
 
-    "description": "< DESCRIPTION HERE >",
+    "description": "",
 
     "exits": {},
 

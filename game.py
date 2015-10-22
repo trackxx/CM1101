@@ -1,11 +1,124 @@
+import hashlib
+import json
 import os
 import player
 import time
 from fight import *
-from menu import *
 from items import *
 from normalise import *
 from map import rooms
+
+def md5_hash(value):
+    return hashlib.md5(value.encode('utf-8')).hexdigest()
+
+def add_leaderboards(name, time):
+    f = open("leaderboards", 'r+')
+    leaderboard = ""
+    added = False
+    for line in f:
+        details = line.split(",")
+        leaderboard_time = int(details[1].rstrip('\n'))
+        if(time <= leaderboard_time):
+            if not added:
+                leaderboard += name + "," + str(time) + "\n"
+                added = True
+        leaderboard += line
+    f.close()
+    if leaderboard == "":
+        leaderboard = name + "," + str(time) + "\n"
+    f = open("leaderboards", 'w')
+    f.write(leaderboard)
+    f.close()
+
+def leaderboards():
+    print("\nLeaderboards:")
+    f = open("leaderboards", 'r+')
+    position = 1
+    for line in f:
+        details = line.split(",")
+        print(str(position) + ". " + details[0] + " (" + details[1].rstrip('\n') + ")")
+        position += 1
+    f.close()
+    time.sleep(2)
+
+def new_game():
+    player.name = input("What is your name? ")
+    if play_game():
+        print("Congratulations you escaped from PRYZM!")
+        completion_time = player.end_time - player.start_time
+        add_leaderboards(player.name, completion_time)
+        leaderboards()
+    else:
+        print("GAME OVER")
+
+
+def save_game():
+    save_name = input("\nPlease enter a name for your save: ")
+    print("Saving Game...")
+    game_stats = {}
+    room_stats = rooms
+    game_stats["rooms"] = room_stats
+    game_stats["inventory"] = player.inventory
+    game_stats["active_weapons"] = player.active_weapons
+    game_stats["current_weapon"] = player.current_weapon
+    game_stats["current_room"] = player.current_room
+    game_stats["health"] = player.health
+    game_stats["drunk"] = player.drunk
+    game_stats["money"] = player.money
+    game_stats["name"] = player.name
+    game_stats["start_time"] = player.start_time
+
+    game_hash = md5_hash(str(player.start_time) + player.name + save_name)
+    game_stats["hash"] = game_hash
+    f = open(save_name, 'w')
+    f.write(json.dumps(game_stats))
+    print("Game saved successfully!")
+    f.close()
+    time.sleep(3)
+
+def load_game():
+    save_name = input("\nPlease enter the name of your game save: ")
+    print("Loading Game...")
+    f = open(save_name, 'r')
+    game_stats = json.loads(f.read())
+    f.close()
+    save_hash = game_stats["hash"]
+    hash_check = md5_hash(str(game_stats["start_time"]) + game_stats["name"] + save_name)
+    if(hash_check != save_hash):
+        print("Save file is invalid")
+    else:
+        rooms = game_stats["rooms"]
+        player.inventory = game_stats["inventory"]
+        player.active_weapons = game_stats["active_weapons"]
+        player.current_weapon = game_stats["current_weapon"]
+        player.current_room = game_stats["current_room"]
+        player.health = game_stats["health"]
+        player.drunk = game_stats["drunk"]
+        player.money = game_stats["money"]
+        player.name = game_stats["name"]
+        player.start_time = game_stats["start_time"]
+        print("Game loaded successfully")
+        if play_game():
+            print("Congratulations you escaped from PRYZM!")
+            completion_time = player.end_time - player.start_time
+            add_leaderboards(player.name, completion_time)
+            leaderboards()
+        else:
+            print("GAME OVER")
+
+def show_menu():
+    menu_items = ["New Game", "Save Current Game", "Load Game", "Leaderboards"]
+    for i in range(0, len(menu_items)):
+        print("Press " + str(i + 1) + " for " + menu_items[i])
+    selection = str(input("What would you like to do? "))
+    if selection == "1":
+        new_game()
+    elif selection == "2":
+        save_game()
+    elif selection == "3":
+        load_game()
+    elif selection == "4":
+        leaderboards()
 
 def list_of_items(items):
     item_list = ""
@@ -53,11 +166,12 @@ def print_stats():
     print("Stats:")
     print("Health: " + str(player.health))
     print("Drunk: " + str(player.drunk))
-    print("Money: £" + str((player.money / 100)) + "\n")
+    print("Money: £" + str((player.money / 100)) + "0\n")
 
 def print_menu(exits, room_items, inv_items, people):
     untalkable = ["Coursemate Girl's Boyfriend", "Smoking Friend", "Toilet Man"]
     print("You can:")
+    print("MENU to go to the main menu.")
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
@@ -74,7 +188,6 @@ def print_menu(exits, room_items, inv_items, people):
     for person in people:
         if not person["name"] in untalkable:
             print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
-    # print("MENU to go to the main menu.")
     print("What do you want to do?")
 
 
@@ -164,7 +277,7 @@ def execute_talk(person_name):
 def consume_item(item):
         if item["type"] == "money":
             player.money += int(item["amount"])
-            print("You found £" + str(player.money / 100) + "!")
+            print("You found £" + str(player.money / 100) + "0!")
         elif item["type"] == "drunkness":
             player.drunk += int(item["amount"])
             print("You drank " + item["name"])
