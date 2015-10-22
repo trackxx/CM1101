@@ -53,7 +53,7 @@ def print_stats():
     print("Stats:")
     print("Health: " + str(player.health))
     print("Drunk: " + str(player.drunk))
-    print("Money: " + str(player.money) + "\n")
+    print("Money: £" + str((player.money / 100)) + "\n")
 
 def print_menu(exits, room_items, inv_items, people):
     untalkable = ["Coursemate Girl's Boyfriend", "Smoking Friend", "Toilet Man"]
@@ -69,6 +69,8 @@ def print_menu(exits, room_items, inv_items, people):
             print("INTERACT " + item["id"].upper() + " to interact with " + item["name"] + ".")
     for item in inv_items:
         print("DROP " + item["id"].upper() + " to drop your " + item["name"] + ".")
+        if item["interactable"]:
+            print("INTERACT " + item["id"].upper() + " to interact with " + item["name"] + ".")
     for person in people:
         if not person["name"] in untalkable:
             print("TALK " + person["name"].upper() + " to talk to " + person["name"] + ".")
@@ -158,26 +160,38 @@ def execute_talk(person_name):
     except KeyError:
         print("You cannot talk to " + str_person_name + ".")
 
+def consume_item(item):
+        if item["type"] == "money":
+            player.money += int(item["amount"])
+            print("You found £" + str(player.money / 100) + "!")
+        elif item["type"] == "drunkness":
+            player.drunk += int(item["amount"])
+            print("You drank " + item["name"])
+        elif item["type"] == "health":
+            player.health += int(item["amount"])
+            print("You had a " + item["name"])
+        elif item["type"] == "weapons":
+            for i in range(0, len(item["items"])):
+                print("Press " + str(i + 1) + " For " + item["items"][i]["name"])
+            choice = int(input("Please choose a weapon: "))
+            player.active_weapons.append(item["items"][(choice - 1)])
+            print("You picked up " + item["items"][(choice - 1)]["name"])
+        elif item["type"] == "item":
+            for i in range(0, len(item["items"])):
+                player.inventory.append(item["items"])
+                print("You found " + item["name"])
+
 def execute_interact(item_id):
+    merged_list = player.current_room["items"] + player.inventory
     for item in player.current_room["items"]:
         if(item["id"] == item_id):
-            if item["type"] == "money":
-                player.money += int(item["amount"])
-                print("You found £" + str(player.money / 100) + "!")
-            elif item["type"] == "drunkness":
-                player.drunk += int(item["amount"])
-                print("You drank " + item["name"])
-            elif item["type"] == "weapons":
-                for i in range(0, len(item["items"])):
-                    print("Press " + str(i + 1) + " For " + item["items"][i]["name"])
-                choice = int(input("Please choose a weapon: "))
-                player.active_weapons.append(item["items"][(choice - 1)])
-                print("You picked up " + item["items"][(choice - 1)]["name"])
-            elif item["type"] == "item":
-                for i in range(0, len(item["items"])):
-                    player.inventory.append(item["items"])
-                    print("You found " + item["name"])
+            consume_item(item)
             player.current_room["items"].remove(item)
+            time.sleep(2)
+    for item in player.inventory:
+        if(item["id"] == item_id):
+            consume_item(item)
+            player.inventory.remove(item)
             time.sleep(2)
 
 
@@ -234,8 +248,7 @@ def move(exits, direction):
     return rooms[exits[direction]]
 
 def check_completion():
-    if len(player.inventory) == 100:
-        print("You have completed the game!")
+    if player.current_room["name"] == "exit":
         return True
     else:
         return False
