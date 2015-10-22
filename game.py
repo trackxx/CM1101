@@ -182,7 +182,6 @@ def consume_item(item):
                 print("You found " + item["name"])
 
 def execute_interact(item_id):
-    merged_list = player.current_room["items"] + player.inventory
     for item in player.current_room["items"]:
         if(item["id"] == item_id):
             consume_item(item)

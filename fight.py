@@ -2,6 +2,7 @@ import player
 import time
 from people import *
 from weapons import *
+from game import *
 
 def weapon_selection(index):
     for i in range(0, len(player.active_weapons)):
@@ -12,7 +13,11 @@ def weapon_selection(index):
 
 def use_item():
     '''Use items to regain health and inflict damage to your opponent'''
-    pass
+    for item in player.inventory:
+        if item["interactable"] == True:
+            choice = input("INTERACT " + item["id"].upper() + " to interact with " + item["name"] + ".")
+            normalised_user_input = normalise_input(choice)
+            execute_command(normalised_user_input)
 
 def attack_enemy(index):
     print("You attacked " + index["name"] + " with your " + player.current_weapon["name"])
